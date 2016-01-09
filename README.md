@@ -2,11 +2,10 @@
 
 ## Part 1 : Training
 
-### Lua
+[lua.org](http://www.lua.org/)
 
 #### Basics
 
-* [lua.org](http://www.lua.org/)
 * [Learn lua in one video](http://www.newthinktank.com/2015/06/learn-lua-one-video/) + cheat sheet by Dereck Banas
 * [Lua rocks](https://luarocks.org/) : package manager for lua
 * [Lua jit](http://luajit.org/luajit.html) : just in time compiler
@@ -21,8 +20,12 @@
 
 ### Löve
 
+[love2d.org](https://love2d.org)
+
 #### Tutorial
 
+* [löve2d - wiki](https://love2d.org/wiki/)
+* [löve2d - wiki - tutorials](https://love2d.org/wiki/Category:Tutorials)
 * [Creating a platformer with love](http://www.headchant.com/2012/01/06/tutorial-creating-a-platformer-with-love-part-1/)
 
 #### Graphic libs
