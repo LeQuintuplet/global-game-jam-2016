@@ -52,8 +52,11 @@ function MapEngine.Map:new(mapFile)
     data[i] = {}
     for j=1,self.width do
       data[i][j]=dataUnformated[n]
+      io.write(data[i][j])
+      io.write(" ")
       n=n+1
     end
+    print()
   end
   self.data  = data
 
@@ -65,7 +68,7 @@ end
 -- @param y the y coordinate of the map to be alter
 -- @param newTile the tile value for the altered square
 function MapEngine.Map:alter(x,y,newTile)
-  self.data[x][y] = newValue
+  self.data[x][y] = newTile
 end
 
 --- Draw the map.
