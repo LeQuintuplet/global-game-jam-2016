@@ -1,7 +1,7 @@
 local Level = require "model.Level"
 local Room = require "model.Room"
 
-local levelTest = Level.new(discoveryTime, 3)
+local levelTest = Level.new(120, 3)
 
 local roomTest1 = Room.new("Cuisine", false, true, true, false)
 local roomTest2 = Room.new("Salon", true, false, true, true)
@@ -23,4 +23,11 @@ Level.addRoom(levelTest, placeHolder, 1, 1)
 Level.addRoom(levelTest, placeHolder, 3, 2)
 Level.addRoom(levelTest, placeHolder, 3, 3)
 
+Level.setPlayerPos(levelTest, 2, 2)
+Level.playerMove(levelTest, "up")
+
 Level.display(levelTest)
+Level.playerInfo(levelTest)
+
+-- print( Level.playerMoveAllowed(levelTest, "up") )
+-- print( Level.playerMoveAllowed(levelTest, "right") )
