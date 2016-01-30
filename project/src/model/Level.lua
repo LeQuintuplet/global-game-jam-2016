@@ -20,12 +20,16 @@ function Level:addRoom( room, x, y )
 	self.rooms[y][x] = room
 end
 
+function Level:getRoom()
+	return self.rooms[ self.playerPosY ][ self.playerPosX ]
+end
+
 function Level:setPlayerPos(x, y)
 	self.playerPosX, self.playerPosY = x, y
 end
 
 function Level:playerMoveAllowed( direction )
-	local actualRoom = self.rooms[ self.playerPosY ][ self.playerPosX ]
+	local actualRoom = Level.getRoom(self)
 	local roomGotDoor
 
 	if direction == "up" then 

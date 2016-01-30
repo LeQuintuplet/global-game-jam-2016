@@ -1,3 +1,6 @@
+-- render
+local Room_audio = require "src.render.Room_audio"
+
 local Room = {}
 
 function Room.new( name, up, right, down, left )
@@ -10,6 +13,14 @@ function Room.new( name, up, right, down, left )
 	self.sounds = {}
 
 	return self
+end
+
+function Room:addSound( file )
+	self.sounds[ #self.sounds ] = file
+end
+
+function Room:getRender()
+	return Room_audio.new(self)
 end
 
 return Room

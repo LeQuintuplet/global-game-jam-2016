@@ -50,7 +50,10 @@ function game:gamepadpressed( joystick, button )
 
 	if move then
 		if Level.playerMoveAllowed(game.level, move) then
+			Level.getRoom(game.level):stop()
 			Level.playerMove(game.level, move)
+			
+			Level.getRoom(game.level):start()
 			Level.playerInfo(game.level)
 		else
 			print("!! Déplacement impossible")
