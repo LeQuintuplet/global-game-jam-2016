@@ -2,12 +2,12 @@
 Gamestate = require "libs.hump.gamestate"
 
 -- States
-local game = require "src.states.game"
-local intro = require "src.states.intro"
+gstate_game = require "src.states.game"
+gstate_intro = require "src.states.intro"
 
 function love.load()
 	Gamestate.registerEvents()
-	Gamestate.switch(intro)
+	Gamestate.switch(gstate_intro)
 end
 
 function love.update(dt)
