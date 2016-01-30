@@ -4,6 +4,7 @@ local pics = {
 	credits = "img/firstFrame.png",
 	gamePad = "img/secondFrame.png",
 	instructions = "img/thirdFrame.png",
+	menu = "img/menu.png",
 }
 
 local currentPic
@@ -14,6 +15,7 @@ function intro:enter()
 	pics.credits = love.graphics.newImage( pics.credits )
 	pics.gamePad = love.graphics.newImage( pics.gamePad )
 	pics.instructions = love.graphics.newImage( pics.instructions )
+	pics.menu = love.graphics.newImage( pics.menu )
 	currentPic = pics.credits
 	timer = 0
 	middleX = love.graphics.getDimensions()
@@ -28,6 +30,9 @@ function intro:update(dt)
 	if state == 2 then
 		currentPic = pics.gamePad
         end
+	if state == 4 then
+		currentPic = pics.menu
+	end
 end
 
 function intro:draw()
@@ -39,9 +44,10 @@ function intro.gamepadConnected()
 	g_gamepad = joystick[1]
 	if g_gamepad then
 		print("gamepad plugged, loading game")
-		Gamestate.switch(gstate_game)
+		state = 4
 	else
 		print("plug a gamePad please")
+		state = 2
 	end
 end
 
@@ -49,8 +55,11 @@ function intro:keypressed(key)
    if key == "space" then
        state = state + 1
    end
-   if state > 2 then
+   if state == 2 or state == 3 then
        intro.gamepadConnected()
+   end
+   if state > 4 then
+       Gamestate.switch(gstate_game)
    end
    if key == "escape" then
       love.event.quit()
