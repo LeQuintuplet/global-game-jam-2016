@@ -5,7 +5,7 @@ function Room_audio.new( room )
 	for i,file in ipairs(room.sounds) do
 		local tmp = love.audio.newSource(file, "stream")
 		tmp:setLooping(true)
-		self[#self]
+		self[#self + 1] = tmp
 	end
 	return self
 end

@@ -2,6 +2,9 @@
 local Level = require "src.model.Level"
 local Room = require "src.model.Room"
 
+-- render
+local Room_audio = require "src.render.Room_audio"
+
 local game = {} -- module start
 
 -- level config start
@@ -14,6 +17,9 @@ local room5 = Room.new("Salle de bain", false, true, true, false)
 local room6 = Room.new("Bureau", false, false, false, true)
 
 local placeHolder = Room.new(" ", false, false, false, false)
+
+-- Room.addSound( room1, "sound file")
+-- Room.generateRender( room1 )
 
 Level.addRoom(game.level, room1, 2, 1)
 Level.addRoom(game.level, room2, 2, 2)
@@ -49,11 +55,11 @@ function game:gamepadpressed( joystick, button )
 	end
 
 	if move then
+		print()
 		if Level.playerMoveAllowed(game.level, move) then
-			Level.getRoom(game.level):stop()
+			Room.StopAudio( Level.getRoom(game.level) )
 			Level.playerMove(game.level, move)
-			
-			Level.getRoom(game.level):start()
+			Room.StartAudio( Level.getRoom(game.level) )
 			Level.playerInfo(game.level)
 		else
 			print("!! Déplacement impossible")
