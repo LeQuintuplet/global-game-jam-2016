@@ -8,6 +8,7 @@ function Level.new( discoveryTime, height )
 	self.timer = 0
 	self.discoveryTime = discoveryTime
 	self.rooms = {}
+	self.height = height
 
 	for y=1,height do
 		self.rooms[y] = {}
@@ -26,6 +27,17 @@ end
 
 function Level:setPlayerPos(x, y)
 	self.playerPosX, self.playerPosY = x, y
+end
+
+function Level:setPlayerPosAlea()
+	love.math.setRandomSeed( os.time() )
+	local xtmp, ytmp
+	repeat
+		xtmp = love.math.random(self.height)
+		ytmp = love.math.random(self.height)
+	until self.rooms[ytmp][xtmp] ~= nil
+	Level.setPlayerPos(self, xtmp, ytmp)
+	Level.playerInfo(self)
 end
 
 function Level:playerMoveAllowed( direction )
@@ -96,6 +108,7 @@ end
 function Level:playerInfo()
 	print("Player coordinate (" .. self.playerPosX .. ";" .. self. playerPosY .. ")")
 	print("Player room : " .. self.rooms[ self.playerPosY ][ self.playerPosX ].name)
+	print(self.rooms[ self.playerPosY ][ self.playerPosX ].escape)
 end
 
 return Level

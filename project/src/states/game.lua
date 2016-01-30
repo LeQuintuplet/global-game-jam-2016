@@ -2,44 +2,21 @@
 local Level = require "src.model.Level"
 local Room = require "src.model.Room"
 
--- render
-local Room_audio = require "src.render.Room_audio"
-
 local game = {} -- module start
-
--- level config start
-game.level = Level.new(120, 3)
-local room1 = Room.new("Cuisine", false, true, true, false)
-local room2 = Room.new("Salon", true, false, true, true)
-local room3 = Room.new("Toilette", true, false, false, true)
-local room4 = Room.new("Chambre", true, true, false, false)
-local room5 = Room.new("Salle de bain", false, true, true, false)
-local room6 = Room.new("Bureau", false, false, false, true)
-
-local placeHolder = Room.new(" ", false, false, false, false)
-
-Room.addAmbiantSound( room1, "music/wind.ogg" )
-Room.addActionSound( room1, "sfx/fouille.ogg" )
-Room.addActionSound( room1, "sfx/avion.ogg" )
-
-Room.generateRender( room1 )
-
-Level.addRoom(game.level, room1, 2, 1)
-Level.addRoom(game.level, room2, 2, 2)
-Level.addRoom(game.level, room3, 2, 3)
-Level.addRoom(game.level, room4, 1, 3)
-Level.addRoom(game.level, room5, 1, 2)
-Level.addRoom(game.level, room6, 3, 1)
-
-Level.addRoom(game.level, placeHolder, 1, 1)
-Level.addRoom(game.level, placeHolder, 3, 2)
-Level.addRoom(game.level, placeHolder, 3, 3)
-
-Level.setPlayerPos(game.level, 2, 2)
--- level config end
+local map
 
 function game:enter()
+	-- map
+	local maps = { require "src/levels/mapTest",
+				   require "src/levels/level1",
+				   require "src/levels/mapTest",
+				   require "src/levels/level1",
+				}
+
 	print("Current state : game")
+	map = maps[love.math.random(4)]
+	game.level = map.level
+	Level.setPlayerPosAlea(game.level)
 end
 
 function game:update(dt)

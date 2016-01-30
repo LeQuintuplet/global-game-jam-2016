@@ -9,11 +9,18 @@ function Room.new( name, up, right, down, left )
 	self.name = name
 	-- doors position like css : up, right, down, left
 	self.doors = {up, right, down, left}
+
 	self.isSafe = false
+	self.escape = false
+
 	self.ambiantSounds = {}
 	self.actionSounds = {}
 
 	return self
+end
+
+function Room:setEscape()
+	self.escape = true
 end
 
 function Room:addAmbiantSound( file )
@@ -49,6 +56,10 @@ end
 function Room:longAction()
 	if self.audioRender then
 		Room_audio.longAction( self.audioRender )
+	end
+	if self.escape then
+		print("level clear")
+		Gamestate.switch(gstate_game)
 	end
 end
 
