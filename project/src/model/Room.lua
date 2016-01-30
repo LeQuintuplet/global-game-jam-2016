@@ -10,13 +10,18 @@ function Room.new( name, up, right, down, left )
 	-- doors position like css : up, right, down, left
 	self.doors = {up, right, down, left}
 	self.isSafe = false
-	self.sounds = {}
+	self.ambiantSounds = {}
+	self.actionSounds = {}
 
 	return self
 end
 
-function Room:addSound( file )
-	self.sounds[ #self.sounds + 1 ] = file
+function Room:addAmbiantSound( file )
+	self.ambiantSounds[ #self.ambiantSounds + 1 ] = file
+end
+
+function Room:addActionSound( file )
+	self.actionSounds[ #self.actionSounds + 1 ] = file
 end
 
 function Room:generateRender()
@@ -24,7 +29,6 @@ function Room:generateRender()
 end
 
 function Room:StartAudio()
-	print("playing sound")
 	if self.audioRender then
 		Room_audio.start( self.audioRender )
 	end
@@ -33,6 +37,18 @@ end
 function Room:StopAudio()
 	if self.audioRender then
 		Room_audio.stop( self.audioRender )
+	end
+end
+
+function Room:shortAction()
+	if self.audioRender then
+		Room_audio.shortAction( self.audioRender )
+	end
+end
+
+function Room:longAction()
+	if self.audioRender then
+		Room_audio.longAction( self.audioRender )
 	end
 end
 

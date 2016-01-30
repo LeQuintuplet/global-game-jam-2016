@@ -18,8 +18,11 @@ local room6 = Room.new("Bureau", false, false, false, true)
 
 local placeHolder = Room.new(" ", false, false, false, false)
 
--- Room.addSound( room1, "sound file")
--- Room.generateRender( room1 )
+Room.addAmbiantSound( room1, "music/wind.ogg" )
+Room.addActionSound( room1, "sfx/fouille.ogg" )
+Room.addActionSound( room1, "sfx/avion.ogg" )
+
+Room.generateRender( room1 )
 
 Level.addRoom(game.level, room1, 2, 1)
 Level.addRoom(game.level, room2, 2, 2)
@@ -46,7 +49,7 @@ function game:draw()
 end
 
 function game:gamepadpressed( joystick, button )
-	-- print("gamepad interaction : " .. button)
+	-- Movement
 	local move
 	if button == "dpup" then move = "up"
 	elseif button == "dpright" then move = "right"
@@ -65,7 +68,13 @@ function game:gamepadpressed( joystick, button )
 			print("!! Déplacement impossible")
 		end
 	end
-	
+
+	-- Action
+	if button == "a" then 
+		Room.shortAction( Level.getRoom(game.level) )
+	elseif button == "b" then
+		Room.longAction( Level.getRoom(game.level) )
+	end
 end
 
 return game -- module end
