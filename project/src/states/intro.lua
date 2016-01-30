@@ -38,8 +38,8 @@ function intro.gamepadConnected()
 	local joystick =  love.joystick.getJoysticks()
 	g_gamepad = joystick[1]
 	if g_gamepad then
-		print("gamepad plugged, displaying instructions")
-		--Gamestate.switch(gstate_game)
+		print("gamepad plugged, loading game")
+		Gamestate.switch(gstate_game)
 	else
 		print("plug a gamePad please")
 	end
