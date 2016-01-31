@@ -7,8 +7,18 @@ g_ignoreInput = 0
 g_discoveryTime = 0
 g_timeToHide = 20
 
-local game = {} -- module start
+-- local
 local map
+local level_blueprint = {
+	"img/mapt2p1.png",
+	"img/mapt2p2.png",
+	"img/mapt2p3.png",
+	"img/mapt2p4.png",
+}
+local blueprint_index = 0
+local middleX
+
+local game = {} -- module start
 
 -- entré dans l'état
 -- choix aléatoire map
@@ -25,10 +35,19 @@ function game:enter()
 	print("#> Current state : game")
 	love.math.setRandomSeed( os.time() )
 	map = maps[love.math.random(4)]
-
+	-- init
 	game.level = map.level
 	Level.setPlayerPosAlea(game.level)
 	g_discoveryTime = game.level.discoveryTime
+	-- draw
+	middleX = love.graphics.getWidth() / 2
+
+	love.graphics.setBackgroundColor(220, 220, 220)
+
+	for i,v in ipairs(level_blueprint) do
+		level_blueprint[i] = love.graphics.newImage( level_blueprint[i] )
+	end
+
 end
 
 function game:update(dt)
@@ -62,6 +81,22 @@ function game:update(dt)
 end
 
 function game:draw()
+	-- map
+	love.graphics.setColor( 255, 255, 255 )
+	local currentPic = level_blueprint[ (blueprint_index%4) + 1]
+	local scale = (love.graphics.getHeight()-40) / currentPic:getHeight()
+	love.graphics.draw( currentPic, middleX -(currentPic:getWidth()*scale/2), 20, 0, scale, scale  )
+	-- text
+	love.graphics.setColor( 0, 0, 0 )
+	love.graphics.print( "Press left and right to show the other map", 20, 20)
+	love.graphics.print( tostring((blueprint_index%4) + 1), 20, 40)
+end
+
+function game:keypressed( key, scancode, isrepeat )
+	-- changement map
+	if scancode == "left" then blueprint_index = blueprint_index - 1
+	elseif scancode == "right" then blueprint_index = blueprint_index + 1
+	end
 end
 
 function game:gamepadpressed( joystick, button )

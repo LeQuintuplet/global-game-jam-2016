@@ -1,15 +1,18 @@
 local intro = {} -- module start
 
 local pics = {
-	"img/firstFrame.png",
-	"img/secondFrame.png",
-	"img/thirdFrame.png",
-	"img/menu.png",
+	"img/credits_1.jpg",
+	"img/oppening_0.jpg",
+	"img/oppening_1.jpg",
+	"img/oppening_2.jpg",
+	"img/player_one_bis.jpg",
+	"img/player_two_bis.jpg",
 }
 
 local currentPic
 local middleX
 local state
+
 function intro:enter()
 	print("#> Current state : intro")
 

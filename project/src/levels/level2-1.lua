@@ -5,11 +5,11 @@ local Room = require "src.model.Room"
 local level2_1 = {} -- module
 
 -- new level
-level2_1.level = Level.new(5, 7) 
+level2_1.level = Level.new(120, 7) 
 
 -- ############################################################################################## --
 -- creating room
---coridors
+-- coridors
 local coridor1 = Room.new("Coridor", true, true, false, false)
 	Room.addAmbiantSound(coridor1, "sfx/")
 	Room.addActionSound(coridor1, "sfx/")
@@ -40,41 +40,40 @@ local coridor7 = Room.new("Coridor", false, true, false, true)
 	Room.addActionSound(coridor7, "sfx/")
 
 local coridor8 = Room.new("Coridor", true, true, true, true)
-	--is a safe room
 	Room.addAmbiantSound(coridor8, "sfx/")
 	Room.addActionSound(coridor8, "sfx/")
 
 
---desks
-local desk1 = Room.new("Desk", false, false, false, true)
+-- desks
+local desk1 = Room.new("Office", false, false, false, true)
 	Room.addAmbiantSound(desk1, "sfx/")
 	Room.addActionSound(desk1, "sfx/")
 
-local desk2 = Room.new("Desk", false, true, true, true)
+local desk2 = Room.new("Office", false, true, true, true)
 	Room.addAmbiantSound(desk2, "sfx/")
 	Room.addActionSound(desk2, "sfx/")
 
-local desk3 = Room.new("Desk", true, true, false, true)
+local desk3 = Room.new("Office", true, true, false, true)
 	Room.addAmbiantSound(desk3, "sfx/")
 	Room.addActionSound(desk3, "sfx/")
 
-local desk4 = Room.new("Desk", true, true, false, true)
+local desk4 = Room.new("Office", true, true, false, true)
 	Room.addAmbiantSound(desk4, "sfx/")
 	Room.addActionSound(desk4, "sfx/")
 
-local desk5 = Room.new("Desk", false, true, true, true)
+local desk5 = Room.new("Office", false, true, true, true)
 	Room.addAmbiantSound(desk5, "sfx/")
 	Room.addActionSound(desk5, "sfx/")
 
-local desk6 = Room.new("Desk", true, true, true, false)
+local desk6 = Room.new("Office", true, true, true, false)
 	Room.addAmbiantSound(desk6, "sfx/")
 	Room.addActionSound(desk6, "sfx/")
 
-local desk7 = Room.new("Desk", false, true, false, true)
+local desk7 = Room.new("Office", false, true, false, true)
 	Room.addAmbiantSound(desk7, "sfx/")
 	Room.addActionSound(desk7, "sfx/")
 
-local desk8 = Room.new("Desk", true, false, false, true)
+local desk8 = Room.new("Office", true, false, false, true)
 	Room.addAmbiantSound(desk8, "sfx/")
 	Room.addActionSound(desk8, "sfx/")
 
@@ -160,6 +159,11 @@ local toilet2 = Room.new("Toilet", false, true, false, false)
 
 -- set escape room
 Room.setEscape(desk8)
+
+-- set safe room
+Room.setSafe(reception2)
+Room.setSafe(coridor5)
+Room.setSafe(coridor8)
 
 Level.addRoom(level2_1.level, toilet1, 4, 1)
 Level.addRoom(level2_1.level, reception1, 5, 1)

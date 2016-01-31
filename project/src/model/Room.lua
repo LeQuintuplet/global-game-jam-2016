@@ -24,6 +24,10 @@ function Room:setEscape()
 	self.escape = true
 end
 
+function Room:setSafe()
+	self.isSafe = true
+end
+
 -- sound
 function Room:addAmbiantSound( file )
 	self.ambiantSounds[ #self.ambiantSounds + 1 ] = file
@@ -66,7 +70,7 @@ function Room:longAction()
 			g_gameWon = true
 			Gamestate.switch(gstate_over)
 		else	
-			print("level clear")
+			print("#> level clear")
 			Gamestate.switch(gstate_game)
 		end
 	end
