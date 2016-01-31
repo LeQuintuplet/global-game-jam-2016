@@ -1,10 +1,10 @@
 local intro = {} -- module start
 
 local pics = {
-	credits = "img/firstFrame.png",
-	gamePad = "img/secondFrame.png",
-	instructions = "img/thirdFrame.png",
-	menu = "img/menu.png",
+	"img/firstFrame.png",
+	"img/secondFrame.png",
+	"img/thirdFrame.png",
+	"img/menu.png",
 }
 
 local currentPic
@@ -12,27 +12,24 @@ local middleX
 local state
 function intro:enter()
 	print("#> Current state : intro")
-	pics.credits = love.graphics.newImage( pics.credits )
-	pics.gamePad = love.graphics.newImage( pics.gamePad )
-	pics.instructions = love.graphics.newImage( pics.instructions )
-	pics.menu = love.graphics.newImage( pics.menu )
+
+	-- pics.credits = love.graphics.newImage( pics.credits )
+	-- pics.gamePad = love.graphics.newImage( pics.gamePad )
+	-- pics.instructions = love.graphics.newImage( pics.instructions )
+	-- pics.menu = love.graphics.newImage( pics.menu )
+
+	for i,v in ipairs(pics) do
+		pics[i] = love.graphics.newImage( pics[i] )
+	end
+
+	state = 1
 	currentPic = pics.credits
-	timer = 0
 	middleX = love.graphics.getDimensions()
 	middleX = middleX/2
-	state = 0
 end
 
 function intro:update(dt)
-	if state == 1 then
-		currentPic = pics.instructions
-	end
-	if state == 2 then
-		currentPic = pics.gamePad
-        end
-	if state == 4 then
-		currentPic = pics.menu
-	end
+	currentPic = pics[state]
 end
 
 function intro:draw()
@@ -44,7 +41,6 @@ function intro.gamepadConnected()
 	g_gamepad = joystick[1]
 	if g_gamepad then
 		print("gamepad plugged, loading game")
-		state = 4
 	else
 		print("plug a gamePad please")
 		state = 2
@@ -55,10 +51,10 @@ function intro:keypressed(key)
    if key == "space" then
        state = state + 1
    end
-   if state == 2 or state == 3 then
+   if state == 3 then
        intro.gamepadConnected()
    end
-   if state > 4 then
+   if state > #pics then
        Gamestate.switch(gstate_game)
    end
    if key == "escape" then
