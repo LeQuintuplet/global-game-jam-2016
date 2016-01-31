@@ -5,7 +5,7 @@ local Room = require "src.model.Room"
 -- globals
 g_ignoreInput = 0
 g_discoveryTime = 0
-g_timeToHide = 5
+g_timeToHide = 15
 
 -- local
 local map
@@ -15,6 +15,11 @@ local level_blueprint = {
 	"img/mapt2p3.png",
 	"img/mapt2p4.png",
 }
+
+for i,v in ipairs(level_blueprint) do
+	level_blueprint[i] = love.graphics.newImage( level_blueprint[i] )
+end
+
 local blueprint_index = 0
 local middleX
 local beastComing = false
@@ -25,14 +30,6 @@ local game = {} -- module start
 -- choix aléatoire map
 -- position aléatoire du joueur
 function game:enter()
-	-- map
-	local maps = { 
-		require "src/levels/level2-1",
-		require "src/levels/level2-1",
-		require "src/levels/level2-1",
-		require "src/levels/level2-1",
-	}
-
 	print("#> Current state : game")
 	love.math.setRandomSeed( os.time() )
 	map = maps[love.math.random(4)]
@@ -45,9 +42,7 @@ function game:enter()
 
 	love.graphics.setBackgroundColor(220, 220, 220)
 
-	for i,v in ipairs(level_blueprint) do
-		level_blueprint[i] = love.graphics.newImage( level_blueprint[i] )
-	end
+	
 
 end
 
@@ -73,7 +68,7 @@ function game:update(dt)
 	-- player hidden when the beast is here
 	elseif g_discoveryTime < 0 and g_timeToHide < 0 then
 		s_beastComing:stop()
-		
+
 		if Level.getRoom(game.level).isSafe then
 			g_discoveryTime = game.level.discoveryTime
 			g_timeToHide = 10
@@ -136,6 +131,7 @@ function game:gamepadpressed( joystick, button )
 
 				Level.playerInfo(game.level)
 			else
+				s_nope:play()
 				print("!! Déplacement impossible")
 			end
 		end

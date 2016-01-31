@@ -66,7 +66,7 @@ function Room:longAction()
 	-- if room is escape
 	if self.escape then
 		g_levelPast = g_levelPast + 1
-		if g_levelPast >= 2 then
+		if g_levelPast >= 1 then
 			g_gameWon = true
 			Gamestate.switch(gstate_over)
 		else	

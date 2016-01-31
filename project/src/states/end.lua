@@ -27,6 +27,8 @@ function gameOver:enter()
 	currentPic = pics.credits
 	middleX = love.graphics.getDimensions()
 	middleX = middleX/2
+
+	love.graphics.setBackgroundColor(0, 0, 0)
 end
 
 function gameOver:update(dt)
@@ -34,6 +36,7 @@ function gameOver:update(dt)
 end
 
 function gameOver:draw()
+	love.graphics.setColor( 255, 255, 255 )
 	love.graphics.draw( currentPic, middleX-(currentPic:getDimensions()/2) )
 end
 

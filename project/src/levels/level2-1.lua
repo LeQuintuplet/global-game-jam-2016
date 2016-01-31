@@ -5,7 +5,7 @@ local Room = require "src.model.Room"
 local level2_1 = {} -- module
 
 -- new level
-level2_1.level = Level.new(5, 7) 
+level2_1.level = Level.new(120, 7) 
 
 -- ############################################################################################## --
 -- creating room
@@ -18,6 +18,15 @@ local coridor5 = Room.new("Coridor", false, true, false, true)
 local coridor6 = Room.new("Coridor", true, false, true, false)
 local coridor7 = Room.new("Coridor", false, true, false, true)
 local coridor8 = Room.new("Coridor", true, true, true, true)
+
+Room.addActionSound( coridor1, "sfx/nothingthere.ogg")
+Room.addActionSound( coridor2, "sfx/nothingthere.ogg") 
+Room.addActionSound( coridor3, "sfx/nothingthere.ogg") 
+Room.addActionSound( coridor4, "sfx/nothingthere.ogg") 
+Room.addActionSound( coridor5, "sfx/nothingthere.ogg") 
+Room.addActionSound( coridor6, "sfx/nothingthere.ogg") 
+Room.addActionSound( coridor7, "sfx/nothingthere.ogg") 
+Room.addActionSound( coridor8, "sfx/nothingthere.ogg") 
 
 -- desks
 local desk1 = Room.new("Office", false, false, false, true)
@@ -105,6 +114,41 @@ local toilet1 = Room.new("Toilet", false, false, true, false)
 local toilet2 = Room.new("Toilet", false, true, false, false)
 	Room.addActionSound(toilet2, "sfx/hairdryer.wav")
 
+Room.addActionSound( toilet1, "sfx/noescape.ogg")
+Room.addActionSound( reception1, "sfx/noescape.ogg")
+Room.addActionSound( desk1, "sfx/noescape.ogg")
+Room.addActionSound( terrace1, "sfx/noescape.ogg")
+Room.addActionSound( desk2, "sfx/noescape.ogg")
+Room.addActionSound( desk3, "sfx/noescape.ogg")
+Room.addActionSound( reception2, "sfx/noescape.ogg")
+Room.addActionSound( restroom1, "sfx/noescape.ogg")
+Room.addActionSound( restaurant1, "sfx/noescape.ogg")
+Room.addActionSound( coridor1, "sfx/noescape.ogg")
+Room.addActionSound( coridor2, "sfx/noescape.ogg")
+Room.addActionSound( coridor3, "sfx/noescape.ogg")
+Room.addActionSound( coridor4, "sfx/noescape.ogg")
+Room.addActionSound( coridor5, "sfx/noescape.ogg")
+Room.addActionSound( reception3, "sfx/noescape.ogg")
+Room.addActionSound( desk4, "sfx/noescape.ogg")
+Room.addActionSound( desk5, "sfx/noescape.ogg")
+Room.addActionSound( server1, "sfx/noescape.ogg")
+Room.addActionSound( restroom2, "sfx/noescape.ogg")
+Room.addActionSound( toilet2, "sfx/noescape.ogg")
+Room.addActionSound( reception4, "sfx/noescape.ogg")
+Room.addActionSound( infirmary1, "sfx/noescape.ogg")
+Room.addActionSound( infirmary2, "sfx/noescape.ogg")
+Room.addActionSound( coridor6, "sfx/noescape.ogg")
+Room.addActionSound( desk6, "sfx/noescape.ogg")
+Room.addActionSound( coridor7, "sfx/noescape.ogg")
+Room.addActionSound( coridor8, "sfx/noescape.ogg")
+Room.addActionSound( terrace2, "sfx/noescape.ogg")
+Room.addActionSound( server2, "sfx/noescape.ogg")
+Room.addActionSound( desk7, "sfx/noescape.ogg")
+
+Room.addActionSound( desk8, "sfx/elevator.ogg")
+
+Room.addActionSound( restaurant2, "sfx/noescape.ogg")
+
 -- ############################################################################################## --
 
 -- set escape room
@@ -116,6 +160,15 @@ Room.setSafe(coridor5)
 Room.setSafe(coridor8)
 
 -- audio render
+Room.generateRender( coridor1 )
+Room.generateRender( coridor2 )
+Room.generateRender( coridor3 )
+Room.generateRender( coridor4 )
+Room.generateRender( coridor5 )
+Room.generateRender( coridor6 )
+Room.generateRender( coridor7 )
+Room.generateRender( coridor8 )
+
 Room.generateRender( toilet1 )
 Room.generateRender( reception1 )
 Room.generateRender( desk1 )
