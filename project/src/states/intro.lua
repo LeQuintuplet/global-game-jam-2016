@@ -11,7 +11,7 @@ local currentPic
 local middleX
 local state
 function intro:enter()
-	print("Current state : intro")
+	print("#> Current state : intro")
 	pics.credits = love.graphics.newImage( pics.credits )
 	pics.gamePad = love.graphics.newImage( pics.gamePad )
 	pics.instructions = love.graphics.newImage( pics.instructions )

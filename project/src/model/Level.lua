@@ -1,5 +1,6 @@
 local Level = {}
 
+-- constructor
 function Level.new( discoveryTime, height )
 	local self = setmetatable({}, Level)
 
@@ -17,6 +18,7 @@ function Level.new( discoveryTime, height )
 	return self
 end
 
+-- Rooms
 function Level:addRoom( room, x, y )
 	self.rooms[y][x] = room
 end
@@ -25,6 +27,7 @@ function Level:getRoom()
 	return self.rooms[ self.playerPosY ][ self.playerPosX ]
 end
 
+-- player
 function Level:setPlayerPos(x, y)
 	self.playerPosX, self.playerPosY = x, y
 end
