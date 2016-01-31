@@ -5,155 +5,105 @@ local Room = require "src.model.Room"
 local level2_1 = {} -- module
 
 -- new level
-level2_1.level = Level.new(120, 7) 
+level2_1.level = Level.new(5, 7) 
 
 -- ############################################################################################## --
 -- creating room
 -- coridors
 local coridor1 = Room.new("Coridor", true, true, false, false)
-	Room.addAmbiantSound(coridor1, "sfx/")
-	Room.addActionSound(coridor1, "sfx/")
-
 local coridor2 = Room.new("Coridor", false, false, true, true)
-	Room.addAmbiantSound(coridor2, "sfx/")
-	Room.addActionSound(coridor2, "sfx/")
-
 local coridor3 = Room.new("Coridor", true, false, true, false)
-	Room.addAmbiantSound(coridor3, "sfx/")
-	Room.addActionSound(coridor3, "sfx/")
-
 local coridor4 = Room.new("Coridor", true, true, true, false)
-	Room.addAmbiantSound(coridor4, "sfx/")
-	Room.addActionSound(coridor4, "sfx/")
-
 local coridor5 = Room.new("Coridor", false, true, false, true)
-	--is a safe room
-	Room.addAmbiantSound(coridor5, "sfx/")
-	Room.addActionSound(coridor5, "sfx/")
-
 local coridor6 = Room.new("Coridor", true, false, true, false)
-	Room.addAmbiantSound(coridor6, "sfx/")
-	Room.addActionSound(coridor6, "sfx/")
-
 local coridor7 = Room.new("Coridor", false, true, false, true)
-	Room.addAmbiantSound(coridor7, "sfx/")
-	Room.addActionSound(coridor7, "sfx/")
-
 local coridor8 = Room.new("Coridor", true, true, true, true)
-	Room.addAmbiantSound(coridor8, "sfx/")
-	Room.addActionSound(coridor8, "sfx/")
-
 
 -- desks
 local desk1 = Room.new("Office", false, false, false, true)
-	Room.addAmbiantSound(desk1, "sfx/")
-	Room.addActionSound(desk1, "sfx/")
+	Room.addActionSound(desk1, "sfx/fouille.ogg")
 
 local desk2 = Room.new("Office", false, true, true, true)
-	Room.addAmbiantSound(desk2, "sfx/")
-	Room.addActionSound(desk2, "sfx/")
+	Room.addActionSound(desk2, "sfx/fouille.ogg")
 
 local desk3 = Room.new("Office", true, true, false, true)
-	Room.addAmbiantSound(desk3, "sfx/")
-	Room.addActionSound(desk3, "sfx/")
+	Room.addActionSound(desk3, "sfx/fouille.ogg")
 
 local desk4 = Room.new("Office", true, true, false, true)
-	Room.addAmbiantSound(desk4, "sfx/")
-	Room.addActionSound(desk4, "sfx/")
+	Room.addActionSound(desk4, "sfx/fouille.ogg")
 
 local desk5 = Room.new("Office", false, true, true, true)
-	Room.addAmbiantSound(desk5, "sfx/")
-	Room.addActionSound(desk5, "sfx/")
+	Room.addActionSound(desk5, "sfx/fouille.ogg")
 
 local desk6 = Room.new("Office", true, true, true, false)
-	Room.addAmbiantSound(desk6, "sfx/")
-	Room.addActionSound(desk6, "sfx/")
+	Room.addActionSound(desk6, "sfx/fouille.ogg")
 
 local desk7 = Room.new("Office", false, true, false, true)
-	Room.addAmbiantSound(desk7, "sfx/")
-	Room.addActionSound(desk7, "sfx/")
+	Room.addActionSound(desk7, "sfx/fouille.ogg")
 
 local desk8 = Room.new("Office", true, false, false, true)
-	Room.addAmbiantSound(desk8, "sfx/")
-	Room.addActionSound(desk8, "sfx/")
+	Room.addActionSound(desk8, "sfx/fouille.ogg")
 
 
 --infimaries
 local infirmary1 = Room.new("Infirmary", false, true, false, false)
-	Room.addAmbiantSound(infirmary1, "sfx/")
-	Room.addActionSound(infirmary1, "sfx/")
+	Room.addActionSound(infirmary1, "sfx/electrocardio.wav")
 
 local infirmary2 = Room.new("Infirmary", true, false, true, true)
-	Room.addAmbiantSound(infirmary2, "sfx/")
-	Room.addActionSound(infirmary2, "sfx/")
+	Room.addActionSound(infirmary2, "sfx/electrocardio.wav")
 
 
 --restaurant
 local restaurant1 = Room.new("Office Restaurant", false, false, true, false)
-	Room.addAmbiantSound(restaurant1, "sfx/")
-	Room.addActionSound(restaurant1, "sfx/")
+	Room.addActionSound(restaurant1, "sfx/vaisselle.wav")
 
 local restaurant2 = Room.new("Office Restaurant", true, false, false, false)
-	Room.addAmbiantSound(restaurant2, "sfx/")
-	Room.addActionSound(restaurant2, "sfx/")
+	Room.addActionSound(restaurant2, "sfx/vaisselle.wav")
 
 
 --receptions
 local reception1 = Room.new("Reception", false, true, true, false)
-	Room.addAmbiantSound(reception1, "sfx/")
-	Room.addActionSound(reception1, "sfx/")
+	Room.addActionSound(reception1, "sfx/sonnerietel.wav")
 
 local reception2 = Room.new("Reception", true, true, false, true)
-	--is a safe room
-	Room.addAmbiantSound(reception2, "sfx/")
-	Room.addActionSound(reception2, "sfx/")
+	Room.addActionSound(reception2, "sfx/sonnerietel.wav")
 
 local reception3 = Room.new("Reception", false, true, true, true)
-	Room.addAmbiantSound(reception3, "sfx/")
-	Room.addActionSound(reception3, "sfx/")
+	Room.addActionSound(reception3, "sfx/sonnerietel.wav")
 
 local reception4 = Room.new("Reception", true, false, true, true)
-	Room.addAmbiantSound(reception4, "sfx/")
-	Room.addActionSound(reception4, "sfx/")
+	Room.addActionSound(reception4, "sfx/sonnerietel.wav")
 
 
 --rest rooms
 local restroom1 = Room.new("Rest Room", false, false, true, true)
-	Room.addAmbiantSound(restroom1, "sfx/")
-	Room.addActionSound(restroom1, "sfx/")
+	Room.addActionSound(restroom1, "sfx/microwave.wav")
 
 local restroom2 = Room.new("Rest Room", true, false, true, false)
-	Room.addAmbiantSound(restroom2, "sfx/")
-	Room.addActionSound(restroom2, "sfx/")
+	Room.addActionSound(restroom2, "sfx/microwave.wav")
 
 
 --server rooms
 local server1 = Room.new("Server Room", true, false, false, true)
-	Room.addAmbiantSound(server1, "sfx/")
-	Room.addActionSound(server1, "sfx/")
+	Room.addActionSound(server1, "sfx/bipinfo3.wav")
 
 local server2 = Room.new("Server Room", true, true, false, false)
-	Room.addAmbiantSound(server2, "sfx/")
-	Room.addActionSound(server2, "sfx/")
+	Room.addActionSound(server2, "sfx/bipinfo3.wav")
 
 --terrace
 local terrace1 = Room.new("Terrace", false, true, false, false)
-	Room.addAmbiantSound(terrace1, "sfx/")
-	Room.addActionSound(terrace1, "sfx/")
+	Room.addActionSound(terrace1, "sfx/mouettes.wav")
 
 local terrace2 = Room.new("Terrace", false, false, false, true)
-	Room.addAmbiantSound(terrace2, "sfx/")
-	Room.addActionSound(terrace2, "sfx/")
+	Room.addActionSound(terrace2, "sfx/mouettes.wav")
 
 
 --toilet
 local toilet1 = Room.new("Toilet", false, false, true, false)
-	Room.addAmbiantSound(toilet1, "sfx/")
-	Room.addActionSound(toilet1, "sfx/")
+	Room.addActionSound(toilet1, "sfx/robinet.wav")
 
 local toilet2 = Room.new("Toilet", false, true, false, false)
-	Room.addAmbiantSound(toilet2, "sfx/")
-	Room.addActionSound(toilet2, "sfx/")
+	Room.addActionSound(toilet2, "sfx/hairdryer.wav")
 
 -- ############################################################################################## --
 
@@ -165,6 +115,41 @@ Room.setSafe(reception2)
 Room.setSafe(coridor5)
 Room.setSafe(coridor8)
 
+-- audio render
+Room.generateRender( toilet1 )
+Room.generateRender( reception1 )
+Room.generateRender( desk1 )
+Room.generateRender( terrace1 )
+Room.generateRender( desk2 )
+Room.generateRender( desk3 )
+Room.generateRender( reception2 )
+Room.generateRender( restroom1 )
+Room.generateRender( restaurant1 )
+Room.generateRender( coridor1 )
+Room.generateRender( coridor2 )
+Room.generateRender( coridor3 )
+Room.generateRender( coridor4 )
+Room.generateRender( coridor5 )
+Room.generateRender( reception3 )
+Room.generateRender( desk4 )
+Room.generateRender( desk5 )
+Room.generateRender( server1 )
+Room.generateRender( restroom2 )
+Room.generateRender( toilet2 )
+Room.generateRender( reception4 )
+Room.generateRender( infirmary1 )
+Room.generateRender( infirmary2 )
+Room.generateRender( coridor6 )
+Room.generateRender( desk6 )
+Room.generateRender( coridor7 )
+Room.generateRender( coridor8 )
+Room.generateRender( terrace2 )
+Room.generateRender( server2 )
+Room.generateRender( desk7 )
+Room.generateRender( desk8 )
+Room.generateRender( restaurant2 )
+
+-- add room to level
 Level.addRoom(level2_1.level, toilet1, 4, 1)
 Level.addRoom(level2_1.level, reception1, 5, 1)
 Level.addRoom(level2_1.level, desk1, 6, 1)

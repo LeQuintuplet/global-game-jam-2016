@@ -5,7 +5,7 @@ local Room = require "src.model.Room"
 -- globals
 g_ignoreInput = 0
 g_discoveryTime = 0
-g_timeToHide = 20
+g_timeToHide = 5
 
 -- local
 local map
@@ -17,6 +17,7 @@ local level_blueprint = {
 }
 local blueprint_index = 0
 local middleX
+local beastComing = false
 
 local game = {} -- module start
 
@@ -64,12 +65,19 @@ function game:update(dt)
 	-- hidding step
 	elseif g_discoveryTime < 0 and g_timeToHide >= 0 then
 		g_timeToHide = g_timeToHide - dt
+		if beastComing == false then 
+			beastComing = true
+			s_beastComing:play()
+		end
 
 	-- player hidden when the beast is here
 	elseif g_discoveryTime < 0 and g_timeToHide < 0 then
+		s_beastComing:stop()
+		
 		if Level.getRoom(game.level).isSafe then
 			g_discoveryTime = game.level.discoveryTime
 			g_timeToHide = 10
+			beastComing = false
 			print("> nice one, keep it up")
 		else
 			print("> DED !")
@@ -90,6 +98,9 @@ function game:draw()
 	love.graphics.setColor( 0, 0, 0 )
 	love.graphics.print( "Press left and right to show the other map", 20, 20)
 	love.graphics.print( tostring((blueprint_index%4) + 1), 20, 40)
+	if beastComing == true then
+		love.graphics.print( "Something dangerous is comming ! Run to a safe zone", 20, 60)
+	end
 end
 
 function game:keypressed( key, scancode, isrepeat )
@@ -116,6 +127,7 @@ function game:gamepadpressed( joystick, button )
 				-- stop le son de la pièce
 				Room.StopAudio( Level.getRoom(game.level) )
 				-- change de pièce
+				s_changeRoom:play()
 				Level.playerMove(game.level, move)
 				-- block move for simulating moving
 				g_ignoreInput = 1
