@@ -5,7 +5,7 @@ local Room = require "src.model.Room"
 -- globals
 g_ignoreInput = 0
 g_discoveryTime = 0
-g_timeToHide = 15
+g_timeToHide = 40
 
 -- local
 local map

@@ -5,7 +5,7 @@ local Room = require "src.model.Room"
 local level2_3 = {} -- module
 
 -- new level
-level2_3.level = Level.new(120, 7) 
+level2_3.level = Level.new(200, 7) 
 
 -- ############################################################################################## --
 -- creating room
