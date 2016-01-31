@@ -15,14 +15,17 @@ local map
 -- position aléatoire du joueur
 function game:enter()
 	-- map
-	local maps = { require "src/levels/mapTest",
-				   require "src/levels/level1",
-				   require "src/levels/mapTest",
-				   require "src/levels/level1",
-				}
+	local maps = { 
+		require "src/levels/level2-1",
+		require "src/levels/level2-1",
+		require "src/levels/level2-1",
+		require "src/levels/level2-1",
+	}
 
 	print("#> Current state : game")
+	love.math.setRandomSeed( os.time() )
 	map = maps[love.math.random(4)]
+
 	game.level = map.level
 	Level.setPlayerPosAlea(game.level)
 	g_discoveryTime = game.level.discoveryTime
