@@ -1,5 +1,13 @@
 # Global Game Jam 2016
 
+## Part 2 : Let's Jam
+
+* Location : Epitech Nantes, France ([Jam site page](http://globalgamejam.org/2016/jam-sites/campus-ionis-group))
+* Game : **The last trial**, almost in the sect ! ([Game page](http://globalgamejam.org/2016/games/last-trial))
+* Team : Lilian Barreteau, Alexis Bulik, William Flambard, Merlin Barzilai, Augustin Lacour (+ thx to Philippe Lauliac for the sound)
+
+End of the jam disclaimer : this game is just "work", it is not balanced, optimized or polished at all. Improvement comming soon ;)
+
 ## Part 1 : Training
 
 [lua.org](http://www.lua.org/)
